@@ -52,21 +52,21 @@ Command to deploy the archive Modal endpoint:
 uv run modal deploy ca-embeds/archive_embedex.py
 ```
 
-This command returns the URL that you can make a POST request to. See the example notebook in `nbs/` for a sample call.  
+This command returns the URL that you can make a POST request to. See the example notebook in `nbs/` for more details.  
 
 ## Extracting a single user's embeddings
 
 To extract a single user's embeddings, we can use `ca-embeds/user_embedex.py`. This is very similar to `archive_embedex.py`:   
-- We deploy `ca-embeds/user_embedex.py` as a web endpoint.
-- We then make a POST request to this endpoint, and it will extract and return embeddings for the user. 
--- In the POST body, we pass the specific HuggingFace model to use, and the @-name of the user to extract.
+- We deploy `ca-embeds/user_embedex.py` as a web endpoint.  
+- We then make a POST request to this endpoint, and it will extract and return embeddings for the user.   
+- - In the POST body, we pass the specific HuggingFace model to use, and the @-name of the user to extract.  
 
 Command to deploy the user Modal endpoint:
 ```bash
 uv run modal deploy ca-embeds/user_embedex.py
 ```
 
-This command returns the URL that you can make a POST request to. See the example notebook in `nbs/` for a sample call.  
+This command returns the URL that you can make a POST request to. See the example notebook in `nbs/` for more details.  
 
 ## Example POST requests
 
