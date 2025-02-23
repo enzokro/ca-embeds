@@ -1,0 +1,16 @@
+[project]
+name = "ca-embeds"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.115.8",
+    "fastcore>=1.7.29",
+    "ipykernel>=6.29.5",
+    "modal>=0.73.65",
+    "nbdev>=2.3.34",
+    "python-dotenv>=1.0.1",
+    "python-fasthtml>=0.12.1",
+    "sentence-transformers>=3.4.1",
+]
