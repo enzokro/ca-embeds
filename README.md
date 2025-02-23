@@ -41,9 +41,9 @@ Once the volume is up, we can create the Modal cloud GPU instances that will ext
 - We deploy `ca-embeds/archive_embedex.py` as a web endpoint.  
 - We then make a POST request to this endpoint, and it will extract embeddings for all of the archive.   
 - - In the POST body, we pass the specific HuggingFace model to use. 
-- - **NOTE!** We are using the `sentence-transformers` library, which return un-normalized embeddings by default.
+- - **NOTE!** We are using the `sentence-transformers` library, which returns un-normalized embeddings by default.
 
-In the `archive_embedex.py` file, what you do with the embeddings is up to you. By default it will save them to the same remote Modal volume. During the hackathon, I uploaded them to a supabase s3 bucket and served public URLs at this dashboard: `https://ca-embeds-dashboard-production.up.railway.app/`. I was also able to upload them to `pgVector` using the `vecs` library from supabase. 
+In the `archive_embedex.py` file, what you do with the embeddings is up to you. By default it will save them to the same remote Modal volume. During the hackathon, I uploaded them to a supabase s3 bucket and served public URLs at this dashboard: [Hackathon Embeddings](https://ca-embeds-dashboard-production.up.railway.app/). I was also able to upload them on `pgVector` using the `vecs` library from supabase. 
 
 There is an ongoing Discord discussion about the best place and schema for stored embeddings, come join and contribute! 
 
@@ -52,7 +52,7 @@ Command to deploy the archive Modal endpoint:
 uv run modal deploy ca-embeds/archive_embedex.py
 ```
 
-This command returns the URL that you can make a POST request to.
+This command returns the URL that you can make a POST request to. See the example notebook in `nbs/` for a sample call.  
 
 ## Extracting a single user's embeddings
 
@@ -66,7 +66,7 @@ Command to deploy the user Modal endpoint:
 uv run modal deploy ca-embeds/user_embedex.py
 ```
 
-This command returns the URL that you can make a POST request to.
+This command returns the URL that you can make a POST request to. See the example notebook in `nbs/` for a sample call.  
 
 ## Example POST requests
 
@@ -89,14 +89,14 @@ r = requests.post(
 )
 ```
 
-Note that web endpoints might be overkill for your use case. Feel free to run modal locally for quicker experiments. 
+Note that web endpoints might be overkill for your use case. Feel free to run Modal locally for quicker experiments. 
 
 ## GPU Docker Images 
 
 The file `ca-embeds/image.py` contains the docker image we use to run the modal endpoints. We use it to build an image with the following:
-- CUDA 12.4 devel on Ubuntu 22.04
-- Python 3.12
-- Flash-Attention
+- CUDA 12.4 devel on Ubuntu 22.04  
+- Python 3.12  
+- Flash-Attention  
 
 I've tried many cloud GPUs, and the ease + customizability of Modal is by far the best. The above image.py file might seem verbose, but it shows how much power Modal provides. Getting the equivalent setup in other cloud providers is like pulling out teeth. 
 
