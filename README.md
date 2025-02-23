@@ -98,7 +98,7 @@ The file `ca-embeds/image.py` contains the docker image we use to run the modal 
 - Python 3.12  
 - Flash-Attention  
 
-I've tried many cloud GPUs, and the ease + customizability of Modal is by far the best. The above image.py file might seem verbose, but it shows how much power Modal provides. Getting the equivalent setup in other cloud providers is like pulling out teeth. 
+I've tried many cloud GPUs, and the ease + customizability of Modal is by far the best. The above image.py file might seem verbose, but it shows how much power Modal provides. Getting the equivalent setup in other cloud providers is like pulling teeth. 
 
 ## Future Work 
 
