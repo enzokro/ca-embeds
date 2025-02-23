@@ -38,10 +38,10 @@ uv run python ca-embeds/volume.py
 
 Once the volume is up, we can create the Modal cloud GPU instances that will extract embeddings for us. For more details see the excellent Modal docs, but at a high-level:   
 
-- We deploy `ca-embeds/archive_embedex.py` as a web endpoint.
-- We then make a POST request to this endpoint, and it will extract embeddings for all of the archive. 
--- In the POST body, we pass the specific HuggingFace model to use. 
--- **NOTE!** We are using the `sentence-transformers` library, which return un-normalized embeddings by default.
+- We deploy `ca-embeds/archive_embedex.py` as a web endpoint.  
+- We then make a POST request to this endpoint, and it will extract embeddings for all of the archive.   
+- - In the POST body, we pass the specific HuggingFace model to use. 
+- - **NOTE!** We are using the `sentence-transformers` library, which return un-normalized embeddings by default.
 
 In the `archive_embedex.py` file, what you do with the embeddings is up to you. By default it will save them to the same remote Modal volume. During the hackathon, I uploaded them to a supabase s3 bucket and served public URLs at this dashboard: `https://ca-embeds-dashboard-production.up.railway.app/`. I was also able to upload them to `pgVector` using the `vecs` library from supabase. 
 
